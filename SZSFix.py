@@ -1,0 +1,25 @@
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("i", help="Input file")
+parser.add_argument("-object", help="For ObjectData szs", action="store_true")
+parser.add_argument("-layout", help="For Layout szs", action="store_true")
+parser.add_argument("-actor", help="For PlayerActor szs", action="store_true")
+args = parser.parse_args()
+if args.object:
+	szs = open(args.i, "r+b")
+	szs.seek(0xA)
+	szs.write(bytearray(b'\x00\x00'))
+	szs.seek(0xA)
+	szs.write(bytearray(b'\x10'))
+elif args.layout:
+	szs = open(args.i, "r+b")
+	szs.seek(0xA)
+	szs.write(bytearray(b'\x00\x00'))
+	szs.seek(0xA)
+	szs.write(bytearray(b'\x20'))
+elif args.actor:
+	szs = open(args.i, "r+b")
+	szs.seek(0xA)
+	szs.write(bytearray(b'\x00\x00'))
+	szs.seek(0xA)
+	szs.write(bytearray(b'\x00\x80'))
