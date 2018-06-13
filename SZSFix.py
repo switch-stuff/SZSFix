@@ -2,7 +2,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("i", help="Input file")
 parser.add_argument("-object", help="For ObjectData szs", action="store_true")
-parser.add_argument("-layout", help="For Layout szs", action="store_true")
+parser.add_argument("-layout", "-patch", help="For Layout szs and Wii U games that require this fix", action="store_true")
 parser.add_argument("-actor", help="For PlayerActor szs", action="store_true")
 args = parser.parse_args()
 if args.object:
